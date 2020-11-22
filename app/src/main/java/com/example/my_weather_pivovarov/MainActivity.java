@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     private void api_key(final String City) {
         OkHttpClient client = new OkHttpClient();
         Request request = new  Request.Builder()
-                .url("http://api.openweathermap.org/data/2.5/weather?q="+City"&appid=1b47ad3333bd70d8cda1d025e53a2c33&units=metric")
+                .url("http://api.openweathermap.org/data/2.5/weather?q="+City+"&appid=1b47ad3333bd70d8cda1d025e53a2c33&units=metric")
                 .get()
                 .build();
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     try {
                         JSONObject json = new JSONObject(responseData);
-                        JSONArray array = json.getJSONArray('weather');
+                        JSONArray array = json.getJSONArray("weather");
                         JSONObject object = array.getJSONObject(0);
 
                         String description = object.getString("description");
