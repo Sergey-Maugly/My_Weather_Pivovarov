@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.my_weather_pivovarov.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     private void api_key(final String City) {
         OkHttpClient client = new OkHttpClient();
         Request request = new  Request.Builder()
-                .url("http://api.openweathermap.org/data/2.5/weather?q="+City+"&appid=1b47ad3333bd70d8cda1d025e53a2c33&units=metric")
+                .url("http://api.openweathermap.org/data/2.5/weather?q="+City+"&appid=1b47ad3333bd70d8cda1d025e53a2c33")
                 .get()
                 .build();
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -75,10 +76,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             Response response = client.newCall(request).execute();
             client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                }
-
                 @Override
                 public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                     String responseData = null;
@@ -106,7 +103,13 @@ public class MainActivity extends AppCompatActivity {
                     } catch(JSONException e){
                         e.printStackTrace();
                     }
+
                 }
+
+                @Override
+                public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                }
+
             });
         } catch (IOException e) {
             e.printStackTrace();

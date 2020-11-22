@@ -71,7 +71,7 @@
                 android:id="@+id/town"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Krakow"
+                android:text="Omsk"
                 android:textColor="#000000" />
 
             <ImageView
@@ -84,7 +84,8 @@
                 android:id="@+id/temp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15°C" />
+                android:text="15°C"
+                android:textColor="#FFFFFF" />
 
             <TextView
                 android:id="@+id/desc"
